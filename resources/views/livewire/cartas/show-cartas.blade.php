@@ -8,31 +8,33 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <x-table>
-            <div class="px-6 py-4">
-                <x-input class="w-full" placeholder="Buscar" type="text" wire:model="search"/>
+            <div class="px-6 py-4 flex items-center">
+                <x-input class="flex-1" placeholder="Buscar" type="text" wire:model="search"/>
+
+                @livewire('cartas.create-carta')
             </div>
 
             @if ($cartas->count())
                 <table class="items-center bg-transparent w-full border-collapse">
                     <thead>
                         <tr>
-                            <th class="cursor-pointer px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            <th class="w-48 cursor-pointer px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                                 wire:click="order('id')">
                                 ID
 
                                 <!-- Sort -->
                                 @if ($sort == 'id')
                                     @if ($direction == 'asc')
-                                        <i class="fa-solid fa-caret-up"></i>
+                                        <i class="fa-solid fa-sort-alpha-up-alt"></i>
                                     @else
-                                        <i class="fa-solid fa-caret-down"></i>
+                                        <i class="fa-solid fa-sort-alpha-down-alt"></i>
                                     @endif
                                 @else
                                     <i class="fa-solid fa-sort"></i>
                                 @endif
                                 
                             </th>
-                            <th class="cursor-pointer px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            <th class="w-48 cursor-pointer px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                                 wire:click="order('nombre')">
                                 Nombre
 
@@ -50,7 +52,7 @@
                             </th>
                             <th class="cursor-pointer px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                                 wire:click="order('descripcion')">
-                                Descripcion
+                                Descripción
 
                                 <!-- Sort -->
                                 @if ($sort == 'descripcion')
