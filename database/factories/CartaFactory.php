@@ -18,7 +18,8 @@ class CartaFactory extends Factory
     {
         return [
             'nombre' => $this->faker->word(),
-            'descripcion' => $this->faker->paragraph(2)
+            'descripcion' => $this->faker->paragraph(2),
+            'image' => 'cartas/' . $this->faker->image('public/storage/cartas', 640, 480, null, false)
         ];
     }
 }

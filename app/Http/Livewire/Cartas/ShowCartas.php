@@ -11,6 +11,8 @@ class ShowCartas extends Component
     public $sort = 'id';
     public $direction = 'desc';
 
+    protected $listeners = ['render' => 'render']; // protected $listeners = ['render' => 'render'];
+
     public function render()
     {
         $cartas = Carta::where('nombre', 'like', '%' . $this->search . '%')
